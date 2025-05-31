@@ -4,7 +4,7 @@ from google import genai
 from PIL import Image
 from tqdm.auto import tqdm
 
-os.environ["OPENAI_API_KEY"] = "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"
+
 PROMPT = "Given the attached image, identify the most important person in this image, and suggest minimal modifications to the image to obtain each of the following effects:\n(1) the person you identified appears naive\n(2) the person you identified appears nonchalant\n(3) the person you identified appears proud\n(4) the person you identified appears remorseful\n(5) the person you identified appears inexperienced\n(6) some factual information depicted in the image changes\nThe possible change targets for the modifications are: the objects or text or humans in the image. When suggesting changes to text in the image, be specific about what text is to be replaced and what text should be added instead.\nGive output as a valid JSON string in the following format:{\n'Most Important Person':<referring expression for most important person>\n'Effects':[\n{'Effect':<effect>,\n'Change Target': <change target>,\n'Explanation': [<referring expression for the change target>, <edit instruction>]}\n]\n}.\n\nDo not include any other information in the response."
 
 def parse_args():
@@ -46,8 +46,10 @@ def prompt_openai(args):
         dset_type = "PIC_2.0"
     elif "PISC" in args.image_folder:
         dset_type = "PISC"
-    else:
+    elif "emotic" in args.image_folder:
         dset_type = "emotic"
+    elif "PIPA" in args.image_folder:
+        dset_type = "PIPA"
     args.output_folder = f"outputs/{args.model_version}_{dset_type}"
     os.makedirs(args.output_folder, exist_ok=True)
     for im in tqdm(os.listdir(args.image_folder)):
@@ -82,7 +84,7 @@ def prompt_openai(args):
     return
 
 def prompt_gemini(args):
-    client = genai.Client(api_key="AIzaSyDpQfi3AVsP2biawwuowb1pQ0PBeig_1EA")
+    client = genai.Client(api_key="<your api key>")
 
     os.makedirs("outputs", exist_ok=True)
     dset_type = ""
@@ -90,8 +92,10 @@ def prompt_gemini(args):
         dset_type = "PIC_2.0"
     elif "PISC" in args.image_folder:
         dset_type = "PISC"
-    else:
+    elif "emotic" in args.image_folder:
         dset_type = "emotic"
+    elif "PIPA" in args.image_folder:
+        dset_type = "PIPA"
     args.output_folder = f"outputs/{args.model_version}_{dset_type}"
     os.makedirs(args.output_folder, exist_ok=True)
     for im in tqdm(os.listdir(args.image_folder)):
