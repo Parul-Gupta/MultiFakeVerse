@@ -15,9 +15,10 @@ MultiFakeVerse. A brief overview of the proposed dataset. Here, we introduce sub
 ![Image](https://github.com/user-attachments/assets/4cc6514e-8fd6-4b19-8005-c1d7f84a5ff9)
 
 
+## 
 ![Image](https://github.com/user-attachments/assets/55000bbb-16d6-46c3-99a8-b02cd885423e)
+Analyzing the perceptual impact of manipulations in images. The edited regions are highlighted by yellow boxes. The analysis covers changes in attributes such as perceived emotion, identity, and ethical implications.
 
-
-
+##
 ![Image](https://github.com/user-attachments/assets/35f59717-eb3e-49e6-82c5-a656014a0a7b)
-Some more example images and their fakes obtained using VLM based image editing, The highlighted yellow boxes indicate the edited regions for images with localized edits. The rest of the images have all three kinds of modifications: Person-level, Object-level and Scene-level.
+Some example images and their fakes obtained using VLM based image editing, The highlighted yellow boxes indicate the edited regions for images with localized edits. The rest of the images have all three kinds of modifications: Person-level, Object-level and Scene-level.
